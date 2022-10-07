@@ -1,0 +1,82 @@
+<div class="container">
+  <div class="row">
+    <div [ngClass]="isTab == true ? 'col-md-8' : 'col-md-12'">
+      <div class="flex-wrapper col-md-12">
+        <h1 class="heading">USER LIST</h1>
+        <mat-form-field class="searchInput">
+        <input matInput appearance="standard" type="text" placeholder="Search" name="userSearchValue" [(ngModel)]="userSearchValue"
+          (ngModelChange)="this.userSearch.next($event)">
+        </mat-form-field>
+        <button mat-raised-button class="add-btn" type="button" (click)="openDialog()">Add new user</button>
+      </div>
+      <table class="my-table table table-responsive">
+        <thead class="my-table headers">
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email</th>
+            <th>Profession</th>
+          </tr>
+        </thead>
+        <tbody class="my-table body">
+          <tr my-active *ngFor="let item of searchUsers">
+            <td (click)="openFirstNameDialog(item)">{{item.firstName}}</td>
+            <td>{{item.lastName}}</td>
+            <td>{{item.email}}</td>
+            <td>{{item.profession}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <app-tabs class="col-md-4">
+      <div class="mt-5" *ngIf="isTab" [ngClass]="isTab == true ? 'col-md-12' : 'col-md-0'">
+        <mat-tab-group>
+          <mat-tab label="User-Info">
+            <ul my-active class="mt-3">
+              <li class="text-size">First-Name: {{item.firstName}}</li>
+              <li class="text-size">last-Name: {{item.lastName}}</li>
+              <li class="text-size">Email: {{item.email}}</li>
+              <li class="text-size">Profession: {{item.profession}}</li>
+            </ul>
+          </mat-tab>
+
+          <mat-tab label="History">
+            <div class="newScrollBar mt-4">Placeat rerum doloribus
+              esse
+              aperiam vitae velit quaerat porro consequuntur est! Corrupti fuga corporis iste illo delectus, ex debitis
+              ipsam exercitationem aspernatur eum aliquam esse deserunt eos consequuntur, reprehenderit ipsa omnis
+              praesentium, adipisci vero excepturi. Delectus praesentium rerum dolorem temporibus consequatur officiis
+              similique assumenda corrupti, tempora amet explicabo facere minima earum mollitia, esse quisquam
+              consequuntur
+              <br>
+              <br>
+              quam dolorum molestias fuga qui hic quibusdam veritatis dolores. Impedit, veritatis nulla magni quod modi
+              deserunt, consectetur nostrum similique perspiciatis illum facilis eum omnis vel et porro assumenda
+              corporis
+              laborum amet corrupti dicta asperiores explicabo ducimus! Facilis?
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Soluta illum suscipit deleniti officiis ullam
+              nihil
+              <br>
+              <br>
+              placeat dolorum laborum, commodi aut ad magnam, voluptatem quod magni veritatis reiciendis eveniet earum
+              ex
+              harum accusamus dolorem, amet veniam! Nemo sapiente assumenda, suscipit impedit sit optio vel autem,
+              maiores
+              fuga porro illum inventore quisquam! Aperiam quia beatae laboriosam quisquam cumque placeat aut, nam
+              aliquid
+              quae dignissimos expedita rem, sapiente itaque voluptate nisi! Quas inventore labore cumque, est illum
+              aliquam
+              incidunt repellendus quisquam. Commodi, sunt. Perferendis iure repellat ratione eum minus necessitatibus
+              ad
+              maiores aspernatur iste nam doloremque quae earum cum magni reiciendis, totam quaerat.
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+        <button type="button" mat-raised-button class="mt-5 modal-button historyButton"
+          (click)="closeFirstNameDialog()">
+          Close
+        </button>
+      </div>
+    </app-tabs>
+  </div>
+</div>

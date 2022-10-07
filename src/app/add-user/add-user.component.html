@@ -1,0 +1,35 @@
+<mat-dialog-content class="mat-typography mt-4">
+    <form [formGroup]="userForm">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>First name </mat-label>
+          <input matInput type="text" formControlName="firstName" placeholder="Please enter a first name">
+          <!-- <mat-error *ngIf="firstName.dirty && firstName.invalid && firstName.touched && firstName.hasError('invalidName')">
+            Please enter your full name
+          </mat-error> -->
+        </mat-form-field>
+    
+        <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Last name </mat-label>
+            <input matInput type="text" formControlName="lastName" placeholder="Please enter a last name">
+            <!-- <mat-error *ngIf="lastName.dirty && lastName.invalid && lastName.touched && lastName.hasError('invalidName')">
+              Please enter your full name
+            </mat-error> -->
+          </mat-form-field>
+        
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Email </mat-label>
+          <input matInput type="email" formControlName="email" placeholder="Please enter email">
+          <!-- <mat-error *ngIf="email.dirty && email.invalid && email.touched">
+            {{ email.hasError('required') ? 'Please enter your email address' : email.hasError('email') ? 'Please enter a valid email address' : '' }}
+          </mat-error> -->
+        </mat-form-field>
+       
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Profession </mat-label>
+          <input matInput type="text" formControlName="profession" placeholder="Please enter a profession">
+        </mat-form-field>
+        <button type="button" mat-raised-button class="ml-3 modal-button" (click)="createUser()"> Create
+        </button>
+      </form>
+  </mat-dialog-content>
+  
